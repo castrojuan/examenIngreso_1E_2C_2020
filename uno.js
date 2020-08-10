@@ -19,12 +19,13 @@ function mostrar()
 	let flag=0;
 	let contador=0;
 	let acumtotal=0;
+	let promedio;
 
 
 
 
 
-	for(let i=0 ; i<2; i++)
+	for(let i=0 ; i<5; i++)
 
 {
 		
@@ -44,6 +45,8 @@ function mostrar()
         }while(edad<0 || edad>110);
 
     
+    contador++;
+    acumtotal=acumtotal+edad;
     
 
   if(sexo=="f")
@@ -65,9 +68,10 @@ if(pesomax<pesomax)
 
 }
 
+promedio=acumtotal/contador;
 
 document.write("la cantidad de mujeres es " + contadormujeres +"<br>");
-document.write("la edad promedio es " + acumtotal/contador.toFixed(2) + "<br>");
+document.write("la edad promedio es " + promedio + "<br>");
 document.write("el hombre mas pesado es " + hombremax + " y pesa " + pesomax + "<br>");
 
 
