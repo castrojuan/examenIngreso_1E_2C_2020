@@ -9,70 +9,66 @@ pedir datos por prompt y mostrar por document.write o console.log
 */
 function mostrar()
 {
-	let nombre;
-	let peso;
-	let sexo;
-	let edad;
-	let contadormujeres=0;
-	let pesomax;
-	let hombremax;
-	let flag=0;
-	let contador=0;
-	let acumtotal=0;
-	let promedio;
+   let nombre;
+   let peso;
+   let sexo;
+   let edad;
+   let contadorMujeres=0;
+   let contadorTotal=0;
+   let acumEdad=0;
+   let pesoMaximo;
+   let HombreMasPesado;
+   let bandera=0;
 
 
-
-
-
-	for(let i=0 ; i<5; i++)
-
+for(let=0;i<5; i++)
 {
-		
-			nombre=prompt("ingrese su nombre");
+
+	do
+	{
+      nombre=prompt("ingrese un nombre")
+    }while(!(IsNaN(nombre)));
+
+    do
+    {
+    	peso=parseInt("ingrese el peso");
+    }while(peso<1 || peso>350);
+
+    do
+    {
+    	edad=parseInt(prompt("ingrese la edad"));
+    }while(edad<1 || edad>110);
+
+    do
+    {
+    	sexo=prompt("ingrese el sexo");
+    }while(sexo!="f" && sexo!="m");
 
 
-	    do{
-	    	peso=parseInt(prompt("ingrese el peso"));
-         }while(peso<0 && peso>400);
+    acumEdad=acumEdad+edad;
+    contadorTotal++;
 
-        do{
-        	sexo=prompt("ingrese el sexo");
-        }while(sexo!="f" && sexo!="m");
+    if(sexo=="f")
+    {
+    	contadorMujeres++;
+    }
 
-        do{
-        	edad=prompt("ingrese su edad");
-        }while(edad<0 || edad>110);
-
-    
-    contador++;
-    acumtotal=acumtotal+edad;
-    
-
-  if(sexo=="f")
-   {
-   	contadormujeres++;
-   }
-
-if(sexo=="m")
-{
- 	pesomax=peso;
-    hombremax=nombre;
-    flag=1;
-}
-if(pesomax<pesomax)
-{
-	pesomax=peso;
-	hombremax=nombre;
-}
+    else
+    {
+    	if(bandera==0 || pesoMaximo<peso)
+    	{
+    		pesoMaximo=peso;
+    		HombreMasPesado=nombre;
+    		bandera=1;
+    	}
+    }
 
 }
 
-promedio=acumtotal/contador;
-
-document.write("la cantidad de mujeres es " + contadormujeres +"<br>");
-document.write("la edad promedio es " + promedio + "<br>");
-document.write("el hombre mas pesado es " + hombremax + " y pesa " + pesomax + "<br>");
-
-
+ document.write("la cantidad de mujeres es "+ contadorMujeres + "<br>");
+ document.write("la edad promedio en total es "+ acumEdad/contadorTotal + "<br>");
+ if(bandera==1)
+ {
+ document.write("el hombre mas pesado es "+ HombreMasPesado + "<br>");
+}
 }
