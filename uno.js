@@ -9,7 +9,7 @@ pedir datos por prompt y mostrar por document.write o console.log
 */
 function mostrar()
 {
-   let nombre;
+   let LPM;
    let peso;
    let sexo;
    let edad;
