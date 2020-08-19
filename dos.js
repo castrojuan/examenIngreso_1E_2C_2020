@@ -7,7 +7,7 @@ b)la marca del más caro de los líquidos
 c)la marca del más barato de los sólidos
 */function mostrar()
 {
- let marca;
+ let hola;
  let precio;
  let peso;
  let tipo;
