@@ -7,25 +7,28 @@ b)la marca del más caro de los líquidos
 c)la marca del más barato de los sólidos
 */function mostrar()
 {
- let hola;
- let precio;
- let peso;
- let tipo;
- let acumPeso=0;
- let LiquidoMasCaro;
- let marcaLiquidoMasCaro;
- let marcaSolidoMasBarato;
- let banderaLiquido=0;
- let banderaSolido=0;
- let respuesta='s';
- let precioMinimo;
+ 
+
+let marca;
+let precio;
+let peso;
+let tipo;
+let acumTotal=0;
+let LiquidoCaro;
+let marcaLiquidoCaro;
+let solidoBarato;
+let marcaSolidoBarato;
+let banderaLiq=0;
+let banderaSolido=0;
+let respuesta='s';
 
 do
 {
 
-
+do
+{
 	marca=prompt("ingrese la marca");
-
+}while(!(IsNaN(marca)));
 
 do
 {
@@ -35,58 +38,56 @@ do
 do
 {
 	peso=parseInt(prompt("ingrese el peso"));
-}while(peso<1 || peso>100);
+}while(peso<1 && peso>50);
 
 do
 {
-	tipo=prompt("ingrese el tipo");
-}while(tipo!="liquido" && tipo!="solido");
+tipo=prompt("ingrese el tipo solido/liquido");
+}while(tipo!="solido" && tipo!="liquido");
 
-
-acumPeso=acumPeso+peso;
+acumTotal=acumTotal+peso;
 
 
 switch(tipo)
 {
-	case"liquido":
+	case "solido":
 	{
-		if(banderaLiquido==0 || LiquidoMasCaro<precio)
+		if(banderaSolido==0 || solidoBarato>precio)
 		{
-			LiquidoMasCaro=precio;
-			marcaLiquidoMasCaro=marca;
-			banderaLiquido=1;
+			solidoBarato=precio;
+			marcaSolidoBarato=marca;
+			banderaSolido=1;
 		}
 	}
-		break;
+	break;
 
-		default:
+	default:
+	{
+		if(banderaLiq==0 || LiquidoCaro<precio)
 		{
-			if(banderaSolido ==0 || precioMinimo>precio)
-			{   
-				precioMinimo=precio;
-				marcaSolidoMasBarato=marca;
-				banderaSolido=1;
-			}
-			
-			break;
+			LiquidoCaro=precio;
+			marcaLiquidoCaro=marca;
+			banderaLiq=1;
 		}
 	}
+}
 
-
-respuesta=prompt("desea agregar otro producto?");
+respuesta=prompt("desea agregar otra producto?");
 
 }while(respuesta=='s');
 
 
-document.write("el peso total de la compra "+ acumPeso + "<br>");
 
-if(banderaLiquido==1)
+
+document.write("el peso total de la compra es " + acumTotal + "<br>");
+
+if(banderaLiq==1)
 {
-document.write("la marca del más caro de los líquidos "+ marcaLiquidoMasCaro + "<br>");
+document.write("la marca del más caro de los líquidos es " + marcaLiquidoCaro + "<br>");
 }
-
 if(banderaSolido==1)
 {
-document.write("la marca del más barato de los sólidos "+ marcaSolidoMasBarato + "<br>");
+document.write("la marca del más barato de los sólidos es " + marcaSolidoBarato + "<br>");
 }
+
 }
